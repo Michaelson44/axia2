@@ -22,3 +22,19 @@ app.delete('/post', (req, res) => {
 })
 
 app.listen(2200, () => console.log('api connected from express'));
+
+// TESTING ENDPOINT WITH JAVASCRIPT FETCH FUNCTION
+
+const test = async () => {
+    const res = await fetch('http://localhost:2200/post', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({id: 1, name: "Michael", hobbies: ["coding", "gymm"]})
+    });
+
+    const result = await res.json();
+    console.log(result);
+}
+test();
